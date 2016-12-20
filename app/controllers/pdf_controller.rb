@@ -62,7 +62,7 @@ class PdfController < ApplicationController
     options = (params[:options] || {}).merge(test: true)
 
     if params[:commit] == 'Download PDF'
-      hypdf = HyPDF.htmltopdf(params[:content], options)
+      @hypdf = HyPDF.htmltopdf(params[:content], options)
       send_data(hypdf[:pdf], filename: 'hypdf_test.pdf', type: 'application/pdf')
     else
       options.merge!(
@@ -70,7 +70,7 @@ class PdfController < ApplicationController
         key: 'hypdf_test.pdf',
         public: true
       )
-      hypdf = HyPDF.htmltopdf(params[:content], options)
+      @hypdf = HyPDF.htmltopdf(params[:content], options)
       redirect_to '/htmltopdf', notice: "PDF url: #{hypdf[:url]} | Number of pages: #{hypdf[:pages]}"
     end
   end
