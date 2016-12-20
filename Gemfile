@@ -1,3 +1,5 @@
+ruby '2.3.1'
+
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
@@ -15,4 +17,4 @@ gem 'twitter-bootstrap-rails'
 
 gem 'thin'
 
-gem 'hypdf'
+gem 'hypdf', '~> 1.0.13'
