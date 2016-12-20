@@ -66,7 +66,7 @@ class PdfController < ApplicationController
       send_data(hypdf[:pdf], filename: 'hypdf_test.pdf', type: 'application/pdf')
     else
       options.merge!(
-        bucket: 'agtesthypdf' #'hypdf_test', # NOTE: replace 'hypdf_test' with your bucket name
+        bucket: 'agtesthypdf', #'hypdf_test', # NOTE: replace 'hypdf_test' with your bucket name
         key: 'hypdf_test.pdf',
         public: true
       )
@@ -98,7 +98,7 @@ class PdfController < ApplicationController
       send_data(hypdf[:pdf], filename: 'hypdf_test.pdf', type: 'application/pdf')
     else
       options.merge!(
-        bucket: 'agtesthypdf' #'hypdf_test', # NOTE: replace 'hypdf_test' with your backet name
+        bucket: 'agtesthypdf', #'hypdf_test', # NOTE: replace 'hypdf_test' with your backet name
         key: 'hypdf_test.pdf',
         public: true
       )
@@ -117,7 +117,7 @@ class PdfController < ApplicationController
       send_data(hypdf[:pdf], filename: 'hypdf_test.pdf', type: 'application/pdf')
     else
       options.merge!(
-        bucket: 'agtesthypdf' #'hypdf_test', # NOTE: replace 'hypdf_test' with your backet name
+        bucket: 'agtesthypdf', #'hypdf_test', # NOTE: replace 'hypdf_test' with your backet name
         key: 'hypdf_test.pdf',
         public: true
       )
