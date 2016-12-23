@@ -14,11 +14,13 @@ HypdfExampleApp::Application.routes.draw do
   get "pdfunite" => 'pdf#pdfunite_page'
   post "pdfunite" => 'pdf#pdfunite'
 
+  get "viewDatabase" => 'pdf#viewDatabase_page'
+  post "viewDatabase" => 'pdf#viewDatabase'
+
   post 'async_pdf' => 'pdf#async_pdf'
 
   root :to => 'pdf#htmltopdf_page'
 
-  get "viewDatabase" => 'pdf#viewDatabase_page'
-  post "viewDatabase" => 'pdf#viewDatabase'
+
 
 end

@@ -135,22 +135,4 @@ class PdfController < ApplicationController
     render(text: 'ok')
   end
 
-    #Create the connection instance.
-    def connect
-      @conn = PG.connect(
-      :dbname => 'postgresql-animated-12731',
-      :user => 'rtmyukvsllckqg',
-      :password => 'ec108e7f3e7e95b0789aa0223085cac1b9c2d4e71be99dfa40d3ad0f7c17d1c6'
-      )
-    end
-
-    #Get Data from the table
-    def queryTable
-      @conn.exec( "SELECT * FROM Account") do |result|
-        result.each do |row|
-          yield row if block_given?
-        end
-      end
-    end
-
 end
