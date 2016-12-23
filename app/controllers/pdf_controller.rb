@@ -134,7 +134,7 @@ class PdfController < ApplicationController
     end
     render(text: 'ok')
   end
-  class PostgresDirect
+
     #Create the connection instance.
     def connect
       @conn = PG.connect(
@@ -146,7 +146,7 @@ class PdfController < ApplicationController
 
     #Get Data from the table
     def queryTable
-      @conn.exec( "SELECT * FROM Accounts") do |result|
+      @conn.exec( "SELECT * FROM Account") do |result|
         result.each do |row|
           yield row if block_given?
         end
@@ -157,19 +157,4 @@ class PdfController < ApplicationController
     def disconnect
       @conn.close
     end
-
-    #main
-    def main
-      p = PostgresDirect.new()
-      p.connect
-      begin
-        p.queryTable {|row| printf("%d %s\n", row['id'], row['name'])}
-      rescue Exception => e
-        puts e.message
-        puts e.backtrace.inspect
-      ensure
-        p.disconnect
-      end
-    end
-  end
 end
