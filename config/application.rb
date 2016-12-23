@@ -6,6 +6,7 @@ require "action_controller/railtie"
 require "action_mailer/railtie"
 require "active_resource/railtie"
 require "sprockets/railtie"
+require "pg"
 # require "rails/test_unit/railtie"
 
 if defined?(Bundler)
@@ -64,5 +65,45 @@ module HypdfExampleApp
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+  end
+
+  class PostgresDirect
+    #Create the connection instance.
+    def connect
+      @conn = PG.connect(
+      :dbname => 'postgresql-animated-12731',
+      :user => 'rtmyukvsllckqg',
+      :password => 'ec108e7f3e7e95b0789aa0223085cac1b9c2d4e71be99dfa40d3ad0f7c17d1c6'
+      )
+    end
+
+    #Get Data from the table
+    def queryTable
+      @conn.exec( "SELECT * FROM Accounts") do |result|
+        result.each do |row|
+          yield row if block_given?
+        end
+      end
+    end
+
+    #Disconnect the back-end connection.
+    def disconnect
+      @conn.close
+    end
+
+    #main
+    def main
+      p = PostgresDirect.new()
+      p.connect
+      begin
+        p.queryTable {|row| printf("%d %s\n", row['id'], row['name'])}
+      rescue Exception => e
+        puts e.message
+        puts e.backtrace.inspect
+      ensure
+        p.disconnect
+      end
+    end
   end
 end
