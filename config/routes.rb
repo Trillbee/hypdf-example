@@ -17,4 +17,9 @@ HypdfExampleApp::Application.routes.draw do
   post 'async_pdf' => 'pdf#async_pdf'
 
   root :to => 'pdf#htmltopdf_page'
+
+  get "viewDatabase" => 'pdf#viewDatabase_page'
+  post "viewDatabase" => 'pdf#viewDatabase'
+
+  resources :Account
 end
