@@ -21,5 +21,4 @@ HypdfExampleApp::Application.routes.draw do
   get "viewDatabase" => 'pdf#viewDatabase_page'
   post "viewDatabase" => 'pdf#viewDatabase'
 
-  resources :Account
 end

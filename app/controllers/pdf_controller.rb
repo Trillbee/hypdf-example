@@ -153,8 +153,4 @@ class PdfController < ApplicationController
       end
     end
 
-    #Disconnect the back-end connection.
-    def disconnect
-      @conn.close
-    end
 end
