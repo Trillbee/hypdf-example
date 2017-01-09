@@ -136,17 +136,43 @@ class PdfController < ApplicationController
   end
 
 
-    def viewDatabase
-      db = PG.connect(
-      :dbname => 'postgresql-animated-12731',
-      :user => 'rtmyukvsllckqg',
-      :password => 'ec108e7f3e7e95b0789aa0223085cac1b9c2d4e71be99dfa40d3ad0f7c17d1c6'
-      )
+  #  def viewDatabase
+  #    db = PG.connect(
+  #    :dbname => 'postgresql-animated-12731',
+  #    :user => 'rtmyukvsllckqg',
+  #    :password => 'ec108e7f3e7e95b0789aa0223085cac1b9c2d4e71be99dfa40d3ad0f7c17d1c6'
+  #    )
+  #
+  #    begin
+  #      yield db
+  #      PgQuery.parse("SELECT Id FROM salesforce.account").tables
+  #    end
+  #  end
 
-      begin
-        yield db
-        PgQuery.parse("SELECT Id FROM salesforce.account").tables
-      end
+  #from heroku connect demo
+
+  def accounts
+    @page = (params[:page] || 1).to_i
+    @accounts = Account.order("name").offset(@page*20).limit(20).all()
+  end
+
+  def account
+    if params[:id] =~ /^\d+$/
+        @account = Account.find(params[:id])
+    else
+        @account = Account.find_by_sfid(params[:id])
     end
+
+    begin
+      @contacts = @account.contacts
+    rescue
+      @contacts = []
+    end
+  end
+
+  def contacts
+    @page = (params[:page] || 1).to_i
+    @contacts = Contact.order("lastname").offset(@page*20).limit(20).all()
+  end
 
 end
