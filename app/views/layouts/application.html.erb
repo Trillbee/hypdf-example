@@ -47,19 +47,6 @@
 
     <!-- from Heroku Connect demo -->
 
-    <% if rails_user_signed_in? %>
-      Welcome <%= current_rails_user.salesforce_name %> (<%= current_rails_user.salesforce_id %> <%= current_rails_user.sf_error %>)
-      <li>
-      <%= link_to('Logout', destroy_rails_user_session_path, :method => :delete) %>
-      </li>
-    <% else %>
-      <li>
-      <%= link_to('Login', new_rails_user_session_path)  %>
-      </li>
-    <% end %>
-
-    	<p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
 
     <h1 style="width:100%;text-align:right;border:1px solid #CCC">cloudconnect Rails Demo</h1>
 
