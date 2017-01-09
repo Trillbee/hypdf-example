@@ -19,6 +19,8 @@ HypdfExampleApp::Application.routes.draw do
 
   post 'async_pdf' => 'pdf#async_pdf'
 
+  match '/accounts' => 'salesforce#accounts'
+
   root :to => 'pdf#htmltopdf_page'
 
 

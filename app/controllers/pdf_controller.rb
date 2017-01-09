@@ -151,4 +151,9 @@ class PdfController < ApplicationController
 def viewDatabase
   Salesforce::Account
 end
+def accounts
+  @page = (params[:page] || 1).to_i
+  @accounts = Account.order("name").offset(@page*20).limit(20).all()
+end
+
 end
