@@ -149,5 +149,5 @@ class PdfController < ApplicationController
   #  end
 
 def viewDatabase
-  Salesforce::Account
+  #Salesforce::Account
 end
