@@ -1,4 +1,4 @@
-class SalesforceModel < ActiveRecord::Base
+class SalesforceModel < activerecord::Base
     self.abstract_class = true
     self.inheritance_column = 'rails_type'
 
