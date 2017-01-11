@@ -20,3 +20,7 @@ gem 'twitter-bootstrap-rails'
 gem 'thin'
 
 gem 'hypdf', '~> 1.0.13'
+
+gem 'restforce', '~> 2.5.0'
+gem 'omniauth-salesforce'
+gem 'slim-rails'
