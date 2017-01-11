@@ -1,3 +1,6 @@
+require 'pry'
+require 'active_record'
+
 class User < ActiveRecord::Base
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid).permit!).first_or_initialize.tap do |user|

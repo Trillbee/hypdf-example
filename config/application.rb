@@ -67,5 +67,8 @@ module HypdfExampleApp
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
 
+    config.salesforce_app_id = '06P28000000A5vY'
+    config.salesforce_app_secret = '558233486114349392'
+
   end
 end

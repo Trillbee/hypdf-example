@@ -4,19 +4,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
     <title>HyPDF Example App</title>
-
-
-    <div id="user-widget">
-  <% if current_user %>
-    Welcome <strong><%= current_user.name %></strong>!
-    <%= link_to "Sign out", signout_path, id: "sign_out" %>
-  <% else %>
-    <%= link_to "Sign in with Salesforce", "/auth/salesforce", id: "sign_in" %>
-  <% end %>
-</div>
-
-<%= yield %>
 
     <%= csrf_meta_tags %>
 
@@ -39,17 +30,11 @@
             <span class="icon-bar"></span>
           </a>
           <a class="brand" href="/">HyPDF Example App</a>
-          <!--div class="container nav-collapse">
-            <ul class="nav">
-              <li><%= link_to "Source code", "https://github.com/redfield/hypdf_example_app", target: '_blank'  %></li>
-              <li><%= link_to "Plans", "https://addons.heroku.com/hypdf", target: '_blank'  %></li>
-              <li><%= link_to "Documentation", "https://devcenter.heroku.com/articles/hypdf", target: '_blank'  %></li>
-              <li><%= link_to "Gem", "https://github.com/redfield/hypdf", target: '_blank'  %></li>
-            </ul>
-          </div--><!--/.nav-collapse -->
         </div>
       </div>
     </div>
+
+
 
     <div class="container main-container">
       <%= bootstrap_flash %>
@@ -57,6 +42,16 @@
     </div> <!-- /container -->
 
     <%= javascript_include_tag "application" %>
+
+    <div id="user-widget">
+      <% if current_user %>
+      Welcome <strong><%= current_user.name %></strong>!
+      <%= link_to "Sign out", signout_path, id: "sign_out" %>
+      <% else %>
+      <%= link_to "Sign in with Salesforce", "/auth/salesforce", id: "sign_in" %>
+      <% end %>
+    </div>
+
 
 
   </body>
