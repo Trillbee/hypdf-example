@@ -3,7 +3,6 @@ ruby '2.3.1'
 source 'https://rubygems.org'
 gem 'slim-rails'
 gem 'rails'
-gem 'sqlite3'
 gem 'minitest'
 
 gem 'psych', '~> 2.0.5'
