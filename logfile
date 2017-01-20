@@ -1,0 +1,6 @@
+LOG:  database system was shut down at 2017-01-11 17:36:49 AEDT
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  autovacuum launcher started
+LOG:  database system is ready to accept connections
+FATAL:  database "my_database_development" does not exist
+FATAL:  database "my_database_development" does not exist
